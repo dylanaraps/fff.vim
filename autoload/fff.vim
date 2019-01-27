@@ -15,7 +15,7 @@ function! fff#Run(command)
             let tmp_file .= "/.cache"
         endif
 
-        let tmp_file .= "/fff/vim_opener"
+        let tmp_file .= "/fff/opened_file"
         let tmp_file = fnameescape(tmp_file)
 
         bd!
@@ -33,10 +33,11 @@ function! fff#Run(command)
     endfunction
 
     if has('nvim')
-        call termopen('fff ' . getcwd(), {'on_exit': function('s:open_file') })
+        call termopen('fff -p ' . getcwd(),
+                    \ {'on_exit': function('s:open_file') })
         startinsert
     else
-        let buffer = term_start([&shell, &shellcmdflag, 'fff ' . getcwd()],
+        let buffer = term_start([&shell, &shellcmdflag, 'fff -p ' . getcwd()],
                     \ {'curwin': 1, 'exit_cb': function('s:open_file')})
 
         if !has('patch-8.0.1261')
