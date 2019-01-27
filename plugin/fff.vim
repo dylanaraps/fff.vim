@@ -1,8 +1,4 @@
-"=============================================================
-" file: fff.vim
-" author:  dylan araps <dylan.araps at gmail.com>
-" license: mit license
-"=============================================================
+" fff.vim
 
 if exists('g:loaded_fff')
 	finish
