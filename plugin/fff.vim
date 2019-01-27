@@ -5,5 +5,4 @@ if exists('g:loaded_fff')
 endif
 let g:loaded_fff = 1
 
-" This command works with all of gulp/grunt's cmdline flags
-command! -nargs=* -complete=file F call fff#Run(<q-args>)
+command! -nargs=* -complete=dir F call fff#Run(<q-args>)
