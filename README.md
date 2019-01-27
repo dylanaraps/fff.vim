@@ -21,7 +21,7 @@ A plugin for vim/neovim which allows you to use [**`fff`**](https://github.com/d
 Using [vim-plug](https://github.com/junegunn/vim-plug):
 
 ```vim
-Plug 'dylanaraps/fff'
+Plug 'dylanaraps/fff.vim'
 ```
 
 Then run `:PlugUpdate`
