@@ -31,6 +31,7 @@ function! fff#Run(command)
     execute 'setlocal' . ' ' . g:fff#split_direction
     execute g:fff#split
     execute 'setlocal nonumber'
+    execute 'setlocal norelativenumber'
 
     if has('nvim')
         call termopen('fff -p ' . a:command,
