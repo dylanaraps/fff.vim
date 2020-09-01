@@ -52,7 +52,7 @@ nnoremap f :F<CR>
 Default: `let g:fff#split = "10new"`
 
 ```vim
-# Vertical split (NERDtree style).
+" Vertical split (NERDtree style).
 let g:fff#split = "30vnew"
 ```
 
@@ -61,6 +61,6 @@ let g:fff#split = "30vnew"
 Default: `let g:fff#split_direction = "splitbelow splitright"`
 
 ```vim
-# Open split on the left side (NERDtree style).
+" Open split on the left side (NERDtree style).
 let g:fff#split_direction = "nosplitbelow nosplitright"
 ```
