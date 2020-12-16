@@ -31,7 +31,7 @@ Then run `:PlugUpdate`
 ### Command
 
 ```vim
-" Open in current directory.
+" Open in Vim's current working directory.
 :F
 
 " Open in ~/dotfiles (or other path)
@@ -41,8 +41,8 @@ Then run `:PlugUpdate`
 ### Easy hotkey
 
 ```vim
-" Open fff on press of 'f'
-nnoremap f :F<CR>
+" Open fff on press of Leader then 'f', where Leader is '\' by default
+nnoremap <silent> <Leader>f :F<CR>
 ```
 
 ## Customization
