@@ -4,7 +4,7 @@ let g:fff#split = get(g:, 'fff#split', '10new')
 let g:fff#split_direction = get(g:, 'fff#split_direction',
                                   \ 'splitbelow splitright')
 
-function! fff#open_file(...)
+function! s:open_file(...)
     let tmp_file = $XDG_CACHE_HOME
 
     if !isdirectory(tmp_file)
@@ -35,11 +35,11 @@ function! fff#Run(command)
 
     if has('nvim')
         call termopen('fff -p ' . a:command,
-                    \ {'on_exit': function('fff#open_file') })
+                    \ {'on_exit': function('s:open_file') })
         startinsert
     else
         let buffer = term_start([&shell, &shellcmdflag, 'fff -p ' . a:command],
-                    \ {'curwin': 1, 'exit_cb': function('fff#open_file')})
+                    \ {'curwin': 1, 'exit_cb': function('s:open_file')})
 
         if !has('patch-8.0.1261')
             call term_wait(buffer, 20)
