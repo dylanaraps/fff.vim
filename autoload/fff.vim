@@ -14,6 +14,7 @@ function! fff#open_file(...)
     let tmp_file .= "/fff/opened_file"
     let tmp_file = fnameescape(tmp_file)
     bd!
+    execute s:winnr . 'wincmd w'
 
     if filereadable(tmp_file)
         let file_data = readfile(tmp_file)
@@ -33,6 +34,7 @@ function! fff#Run(command)
     execute 'setlocal nonumber'
     execute 'setlocal norelativenumber'
 
+    let s:winnr = winnr()
     if has('nvim')
         call termopen('fff -p ' . a:command,
                     \ {'on_exit': function('fff#open_file') })
