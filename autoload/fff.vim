@@ -29,7 +29,11 @@ function! fff#open_file(...)
 endfunction
 
 function! fff#Run(command)
-    execute 'setlocal' . ' ' . g:fff#split_direction
+    let split_direction = (&splitbelow ? '' : 'no') . 'splitbelow '
+                \ . (&splitright ? '' : 'no') . 'splitright'
+    if (split_direction != g:fff#split_direction)
+        execute 'set ' . g:fff#split_direction
+    endif
     execute g:fff#split
     execute 'setlocal nonumber'
     execute 'setlocal norelativenumber'
@@ -46,5 +50,8 @@ function! fff#Run(command)
         if !has('patch-8.0.1261')
             call term_wait(buffer, 20)
         endif
+    endif
+    if (split_direction != g:fff#split_direction)
+        execute 'set ' . split_direction
     endif
 endfunction
