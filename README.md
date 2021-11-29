@@ -45,6 +45,11 @@ Then run `:PlugUpdate`
 nnoremap f :F<CR>
 ```
 
+```vim
+" Open fff on press of 'f' in directory of current file
+nnoremap <expr> <silent>f ':F ' . expand('%:p:h:S') . "\n"
+```
+
 ## Customization
 
 ### Split Size
