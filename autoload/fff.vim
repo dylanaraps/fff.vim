@@ -30,11 +30,11 @@ endfunction
 
 function! fff#Run(command)
     execute 'setlocal' . ' ' . g:fff#split_direction
+    let s:winnr = winnr()
     execute g:fff#split
     execute 'setlocal nonumber'
     execute 'setlocal norelativenumber'
 
-    let s:winnr = winnr()
     if has('nvim')
         call termopen('fff -p ' . a:command,
                     \ {'on_exit': function('fff#open_file') })
